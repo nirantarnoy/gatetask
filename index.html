@@ -1,0 +1,25 @@
+<script src="/socket.io/socket.io.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+<script>
+
+ $(function(){
+ 	var socket = io();
+  
+  $(".submit").click(function(){
+  	socket.emit('chatmessage',$('.txt').val());
+  });
+  socket.on('chatmessage',function(msg){
+  		$('.txt2').val(msg);
+  	});
+ });
+  
+
+</script>
+<body>
+<div>
+	<input type="text" class="txt">
+	<input type="submit" class="submit">
+
+	<input type="textarea" class="txt2">
+</div>
+</body>
